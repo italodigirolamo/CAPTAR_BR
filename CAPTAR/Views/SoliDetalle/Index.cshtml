@@ -1,0 +1,65 @@
+﻿@model IEnumerable<CAPTAR.Models.SoliDetalle>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Zona)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.propietario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Solicitud)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Zona)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.propietario.Correo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Solicitud.Direccion)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.SoliDetalleId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.SoliDetalleId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.SoliDetalleId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

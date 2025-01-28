@@ -1,0 +1,140 @@
+﻿@model CAPTAR.DTO.UsuarioDto
+
+@{
+    // ViewData["Title"] = "Create";
+}
+
+<div class="container">
+    <div class="row  justify-content  align-items-center">
+        <div class="col-md-2 w-auto">
+            <h1 class="mb-2" >Crear </h1>
+        </div>
+        <div class="col-md-2 w-auto">
+            <h3 class="mb-2">Usuario</h3>
+        </div>
+        <div class="alert-success">
+            @ViewBag.Message
+        </div>
+    </div>
+
+@*     <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip({
+                placement: 'bottom'
+            });
+        });
+    </script>
+
+ *@    @* <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"> *@
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js">
+    </script>
+
+    <style>
+        .icons .fa {
+            width: 50px;
+            height: 50px;
+            font-size: 50px;
+        }
+
+        .tooltip-inner {
+            background-color: green !important;
+            color: #fff;
+        }
+
+        .bs-tooltip-bottom .arrow::before,
+        .bs-tooltip-auto[x-placement^="bottom"] .arrow::before {
+            border-bottom-color: green !important;
+        }
+    </style>
+
+     <form  asp-action="Create">
+        <div class="row g-2 align-items-center">
+            @* <div class="col-auto"> *@
+
+            <div class=" form-floating mb-2 col-auto ">
+                <input asp-for="NombreCompleto"  id="NombreCompleto" class="form-control  " placeholder="Nombre Completo" />
+                <label class="control-label" for="NombreCompleto">Nombre Completo</label>
+                <a asp-validation-for="NombreCompleto" class="text-danger" style=font-size 1rem></a>
+            </div>
+
+            <div class=" form-floating mb-2 col-auto  ">
+                    
+                <input asp-for="Email" id="Email" class="form-control" type="email" placeholder="Email"
+                data-toggle="tooltip" data-placement="top"   title="Ingresar un email válido " />
+                <label asp-for="Email" class="control-label">
+                    <a class="text-danger text-decoration-none">*</a> Email
+                </label>
+                <span asp-validation-for="Email" class="text-danger text-sm-center" style="font-size:10px;"></span>
+            </div>
+
+
+
+            <div class=" form-floating mb-2 col-auto ">
+
+                <select class="form-control " style=" width: 4rem;" asp-for="Rol">
+                    @* <select class="form-select " style=" width: 4rem;" asp-for="Banos"> *@
+                    <option value="1" selected>Usuario</option>
+                    <option value="2">Administrador</option>
+                </select>
+                <label asp-for="Rol" class="control-label"></label>
+                <span asp-validation-for="Rol" class="text-danger"></span>
+            </div>
+
+
+
+        </div>
+        @* </div> *@
+
+        <div class=" row  justify-content align-items-md-center">
+            <div class=" col-md-2 w-auto">
+                <input type="submit" value="Aceptar" class="btn btn-primary" />
+            </div>
+            <div class="col-md-2 w-auto">
+                <a class="btn btn-light" asp-action="Index">Regresar</a>
+            </div>
+            <div class="row w-auto   align-items-md-center p-0 m-0 align-text-bottom">
+                <p class="col-md-2 w-auto small">Los campos del formulario resaltados con el carácter </p>
+                <p class="col-md-2 w-auto text-danger  ">*</p>
+                <p class="col-md-2 w-auto small">, son requeridos! </p>
+
+            </div>
+        </div>
+
+        @* <div class=" form-floating mb-2 col-auto"> *@
+            @* <label asp-for="Fecha" class="control-label"></label> *@
+            <input asp-for="Fecha" class="form-control" type="datetime" disabled hidden value="@DateTime.Today" />
+            @* <span asp-validation-for="Fecha" class="text-danger"></span> *@
+        @* </div> *@
+
+
+    </form>
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip({
+                placement: 'bottom'
+            });
+        });
+    </script>
+        
+        @if (ViewBag.Message != null)
+    {
+        <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            };
+        </script>
+    }
+</div>
+
+@* <script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script> *@
+
+@* <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+ *@
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

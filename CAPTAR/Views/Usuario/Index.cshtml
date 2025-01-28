@@ -1,0 +1,127 @@
+﻿@using CAPTAR.Utilities
+@model Pagination<Usuario>
+@{
+    ViewData["Title"] = "Index";
+}
+<h2>Lista de Usuarios</h2>
+
+<div class="row align-items-start">
+    <div class="col-md-2">
+        <a class="btn btn-primary  btn-sm" asp-action="Create">
+            <i class="bi bi-plus-circle" style="font-size: 1rem; color: lightgray;"></i>
+            Crear
+        </a>
+    </div>
+
+    <div class="col-md-3">
+        <form asp-controller="Propietario" asp-action="Index" class="d-flex">
+            <input type="search" name="searchString" placeholder="Buscar por Nombre" class="form-control me-1" aria-label="Search" />
+            <button type="submit" class="btn btn-dark btn-sm">
+                <i class="bi bi-search" style="font-size: 1rem; color: lightgray;">Buscar</i>
+            </button>
+        </form>
+    </div>
+    <div class="col-md-2">
+        <a asp-action="Index" class="text-dark"> Regresar</a>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function Onchange() {
+        document.getElementById("track").click();
+    }
+</script>
+
+<form asp-controller="Propietario" asp-action="Index">
+    <select id="ItemxPag" name="ItemxPag" onchange="Onchange()"
+            asp-items="new SelectList(ViewBag.ItemxPag)">
+
+        <option value="@ViewBag.ItemxPag">@ViewBag.ItemxPag</option>
+
+    </select>
+    <input id="track" type="submit" value="submit" hidden="hidden" />
+</form>
+
+<table class="table table-striped  table-hover table-bordered z-2">
+    <thead class="table-dark">
+        <tr>
+            <th>
+                @* @Html.DisplayNameFor(model => model.IdDocumento) *@
+                IdDocumento
+            </th>
+            <th>
+                @*   @Html.DisplayNameFor(model => model.Nombre) *@
+                <a asp-action="Index" asp-route-ActualOrder="@ViewData["FilterName"]" asp-route-ActualFilter="@ViewData["ActualFilter"]"> Nombre </a>
+                @* Nombre *@
+            </th>
+            <th>
+                @* @Html.DisplayNameFor(model => model.Direccion) *@
+                Direccion
+            </th>
+            <th>
+                @* @Html.DisplayNameFor(model => model.Correo) *@
+                Correo
+            </th>
+            <th class="p-2 text-center">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreCompleto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rol)
+                </td>
+              
+                <td>
+                    <a class="btn btn-primary btn-sm " asp-action="Edit" asp-route-id="@item.Id">
+                        <i class="bi bi-plus-circle" style="font-size: 1rem; color: lightgray;"></i>  Editar
+                    </a>
+                    <a class="btn btn-secondary btn-sm " asp-action="Details" asp-route-id="@item.Id">
+                        <i class="bi bi-pencil" style="font-size: 1rem; color: lightgray;"></i>  Detallar
+                    </a>
+                    <a class="btn btn-warning btn-sm  " asp-action="Delete" asp-route-id="@item.Id">
+                        <i class="bi bi-trash" style="font-size: 1rem; color: lightgray;"></i> Eliminar
+                    </a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+@{
+    var previusDisable = !Model.PreviusPages ? "disabled" : "";
+    var nextDisable = !Model.LatesPages ? "disabled" : "";
+}
+
+<div>
+    <a asp-action="Index" asp-route-ActualOrder="@ViewData["ActualOrder"]"
+       asp-route-numpage="@(Model.StartPage -1)" asp-route-ActualFilter="@ViewData["ActualFilter"]"
+       class="btn btn-light @previusDisable">
+        < Anterior
+    </a>
+
+    @for (var i = 1; i <= Model.TotalPages; i++)
+    {
+        var activepage = (i == Model.StartPage) ? "activepage" : "";
+
+        <a asp-action="Index" asp-route-ActualOrder="@ViewData["ActualOrder"]"
+           asp-route-numpage="@i" asp-route-ActualFilter="@ViewData["ActualFilter"]"
+           class="btn btn-light @activepage">
+            @i
+        </a>
+    }
+
+    <a asp-action="Index" asp-route-ActualOrder="@ViewData["ActualOrder"]"
+       asp-route-numpage="@(Model.StartPage + 1)" asp-route-ActualFilter="@ViewData["ActualFilter"]"
+       class="btn btn-light @nextDisable">
+        Siguiente >
+    </a>
+</div>

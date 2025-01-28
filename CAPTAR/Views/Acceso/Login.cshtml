@@ -1,0 +1,139 @@
+﻿@model CAPTAR.DTO.UsuarioDto
+@{
+    Layout = null;
+}
+
+<section class="vh-100 bg-image">
+    @* style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');"> *@
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+
+
+    <style>
+        .icons .fa {
+            width: 50px;
+            height: 50px;
+            font-size: 50px;
+        }
+
+        .tooltip-inner {
+            background-color: green !important;
+            color: #fff;
+        }
+
+        .bs-tooltip-bottom .arrow::before,
+        .bs-tooltip-auto[x-placement^="bottom"] .arrow::before {
+            border-bottom-color: green !important;
+        }
+    </style>
+
+
+    @* <div class="mask d-flex align-items-center h-100 gradient-custom-3 shadow-lg"> *@
+        <div class="container h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-auto col-md-4 shadow-lg">
+                    @* <div class="col-12 col-md-9 col-lg-7 col-xl-6 shadow-lg"> *@
+
+                    <div class="form-control-sm" style="border-radius: 15px;">
+                        <div class="form-control-sm p-3">
+                            <div class="row">
+                            @* <div class="card-body p-3"> *@
+                                <div class="col-md">
+                                    <img src="~/admin/img/logo6.png" width="80" />
+
+                                </div>
+                                <div class="col-md">
+                                    <h3 class="text-uppercase text-center mb-1">Inicio de Sesión</h3>
+                                </div>
+                            </div>
+                            <div class="col-md">
+                                <h5 class="text-center mb-1">Aplicación para gestión de captación Mobiliaria</h5>
+                            </div>
+                        <form class="align-items-center justify-content-center w-auto" asp-controller="Acceso" asp-action="Login" method="post">
+
+
+                            <div class=" form-floating mb-2 col-auto  ">
+                                <input asp-for="Email" id="Email" class="form-control" type="email" placeholder="Email" required
+                                       data-toggle="tooltip" data-placement="top" title="Ingresar un email válido " />
+                                <label asp-for="Email" class="control-label"></label>
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                                <a asp-validation-for="Email" class="text-danger"></a>
+                            </div>
+
+   @*                          <div class="form-floating p-2 justify-content-center  ">
+                                    <label class="form-label  " for="Email">Email</label>
+                                    <input type="email" id="Email" class="form-control flex-fill" asp-for="Email"   />
+                            </div> *@
+
+@*                             <div class="form-floating p-2 justify-content-center ">
+                                    <label class="form-label" for="Password">Password</label>
+                                    <input type="password" id="Password" class="form-control flex-row" asp-for="Password" />
+                                </div> *@
+
+                            <div class=" form-floating mb-2 col-auto  ">
+                                <input asp-for="Password" id="Password" class="form-control" type="Password" placeholder="Password" required
+                                       data-toggle="tooltip" data-placement="top" title="Ingresar un email válido " />
+                                <label asp-for="Password" class="control-label"></label>
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+
+
+                                <div class="d-flex justify-content-center  mb-3">
+                                    <button type="submit" data-mdb-button-init
+                                            data-mdb-ripple-init class="btn btn-primary btn-block btn-lg gradient-custom-4 text-white">
+                                        Aceptar
+                                    </button>
+                                </div>
+
+                                <p class="text-center text-muted mt-3 mb-0">
+                                    Aún no tienes una cuenta?  <a asp-controller="Acceso" asp-action="Registrarse"
+                                                             class="fw-bold text-body"><u>Registráte</u></a>
+                                </p>
+                                <p class="text-center text-muted mt-3 mb-0">
+                                     <a asp-controller="Home" asp-action="Index"
+                                       class="fw-bold text-body"><u> Volver atrás Sin Registrarse</u></a>
+                                </p>
+                                <p class="form-control text-center ">
+                                    @* &copy; 2024 - CAPTAR - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a> *@
+                                    Made by Italo DEV with <i class="bi bi-heart-fill"></i>
+                                    &copy; 2024    CAPTAR - Bienes y Raices 
+                                    <a class="text-center small" asp-area="" asp-controller="Home" asp-action="Privacy">Privacidad</a>
+                                </p>
+                                @if (ViewData["Message"] != null)
+                                {
+                                    <div class="alert alert-danger" role="alert">
+                                        @ViewData["Message"]
+                                    </div>
+                                }
+
+                            </form>
+
+                        <script>
+                            $(document).ready(function () {
+                                $('[data-toggle="tooltip"]').tooltip({
+                                    placement: 'bottom'
+                                });
+                            });
+                        </script>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+       
+
+    @* </div> *@
+
+
+    @* <footer class="border-top footer text-muted"> *@
+
+    @* <footer class="footer  navbar-nav me-auto bg-dark" data-bs-theme="dark"> *@
+        
+    @* </footer> *@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+</section>

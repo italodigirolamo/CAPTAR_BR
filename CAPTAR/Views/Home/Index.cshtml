@@ -1,0 +1,114 @@
+﻿@using System.Security.Claims;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+
+@*     @if (User.Identity!.IsAuthenticated)
+    {
+        <h2> 
+            @User.Claims.Where(c=> c.Type == ClaimTypes.Name).Select(c=>c.Value).SingleOrDefault()
+            @User.Claims.Where(c => c.Type == ClaimTypes.Email).Select(c => c.Value).SingleOrDefault()
+        </h2>
+    } *@
+    <div class="alert-success">
+        @ViewBag.Message
+
+    </div>
+    <h2>Bienvenidos</h2>
+    <h5>¡Recursos Exclusivos GRATIS  para Propietarios! </h5>
+
+    <p>Más aca <a asp-controller="Propietario" asp-action="Create"> Comienza aquí >></a>.</p>
+
+    <div class="">  
+        <img src="~/admin/img/lauPerson01.png" width="200" />
+        <img src="~/admin/img/cliente01.png" width="400" />
+    </div>
+
+</div>
+
+ <div class="row p-2 justify-content-between text-center  "> 
+
+    <div class="col-md-4  rounded-2 shadow-lg p-2">
+        <div class="fw-bold">E-BOOK</div>
+        <div>
+            <img class="mb-4" src="~/admin/img/ebook1.png" width="100" alt="E-Book" />
+        </div>
+        <div class="mb-4">
+            9 Estrategias y Secretos para Vender tu Propiedad.
+        </div>
+        <div class ="mb-4">
+            Descubre técnicas infalibles y consejos prácticos para maximizar el valor de tu propiedad y cerrar la venta rápidamente.
+        </div>
+        <a class="btn btn-primary mb-4" href="~/public/ebook laura.pdf" download="" >LEER AHORA !</a>
+    </div>
+
+    <div class="col-md-4   rounded-2 shadow p-2">
+        <div class="fw-bold">VALORACIÓN</div>
+        <div>
+            <img class="mb-4" src="~/admin/img/homevalue1.png" width="100" alt="Valor de propiedad" />
+        </div>
+        <div class="mb-4">
+            Descubre Cuánto Vale tu Propiedad Hoy!
+        </div>
+        <div class="mb-4">
+            Recibe una valoración profesional y detallada para conocer el precio real de tu propiedad en el mercado actual.
+        </div>
+        <a class="btn btn-primary mb-4" asp-controller="Solicitud" asp-action="Create">
+            SOLICÍTALO !
+        </a>
+    </div>
+
+    <div class="col-md-4   rounded-2 shadow p-2">
+        <div class="fw-bold">CURSO</div>
+        <div>
+            <img class="mb-4" src="~/admin/img/youtube2.png" width="100" alt="Curso" />
+        </div>
+        <div class="mb-4">
+            Cómo Vender tu Propiedad como un Experto.
+        </div>
+        <div class="mb-4">
+            Aprende paso a paso todo lo necesario para gestionar una venta exitosa, desde la valoración hasta el cierre.
+        </div>
+        <a class="btn btn-primary  mb-4" href="https://www.youtube.com">
+            COMIENZA YA !
+        </a>
+    </div>
+</div>
+
+
+
+<div class="row p-2 justify-content-between text-center">
+    <div class="col-md-4 ">
+        <a class="form-label  " asp-controller="Propietario" asp-action="Create">
+            Regístrate y accede a TODOS los beneficios GRATIS
+        </a>
+      
+    </div>
+    <div class="col-md-4 ">
+        <a class="  " href="https://web.whatsapp.com/">
+            <img src="~/admin/img/whatsapplogo3d.png" width="40" />
+           Escribénos
+        </a>
+    </div>
+    <div class="col-md-4   ">
+        <a class="form-label ">SÍGUENOS EN NUESTRAS REDES SOCIALES  </a>
+        <div class=" input-group align-items-center">
+            <a href="https://www.facebook.com/"> <img src="~/admin/img/facebooklg.png" width="40" /> </a>
+            <a href="https://www.instagram.com/"> <img src="~/admin/img/instagramlg.png" width="40" /> </a>
+            <a href="https://www.linkedin.com/"> <img src="~/admin/img/inkedInlg.png" width="40" /> </a>
+            <a href="https://x.com/"> <img src="~/admin/img/twitterlg.png" width="40" /> </a>
+        </div>
+    </div>
+</div>
+
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            alert("@ViewBag.Message");
+        };
+    </script>
+}
