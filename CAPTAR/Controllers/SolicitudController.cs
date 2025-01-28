@@ -7,16 +7,6 @@ using CAPTAR.Models;
 using Microsoft.AspNetCore.Authorization;
 using MimeKit;
 
-//private readonly UserManager<ApplicationUser> _userManager;
-//private readonly SignInManager<ApplicationUser> _signInManager;
-//private readonly IEmailSender _emailSender;
-//private readonly ISmsSender _smsSender;
-//private readonly ILogger _logger;
-//private readonly string _externalCookieScheme;
-//private IHostingEnvironment _env;
-//using Microsoft.AspNetCore.Hosting;
-
-
 namespace CAPTAR.Controllers
 {
     public class SolicitudController : Controller
@@ -67,8 +57,6 @@ namespace CAPTAR.Controllers
         }
 
         // POST: Solicitud/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
