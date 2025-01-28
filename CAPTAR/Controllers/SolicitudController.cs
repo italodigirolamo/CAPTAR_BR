@@ -122,34 +122,6 @@ namespace CAPTAR.Controllers
                 });
 
 
-               
-
-                //    _emailService.SendEmail(new EmailDto
-                //{
-                //    To = solicitud.Email, 
-                //    Subject = "CAPTAR - Solicitud de Informacion y Propiedades",
-                //    Body =
-                //    "<div>" +
-                //    @"<p>Hey!</p><img src=""https://www.pngwing.com/es/free-png-tsxad "">" +
-                //    //"< img src =" + https://www.pngwing.com/es/free-png-tsxad + "/>"  +
-                //    "<h2>Bienvenido - Recibido</h2>" + 
-                //        " " + solicitud.NombreCompleto + ", Su solicitud ha sido recibida! "  +
-                //        " Le estaremos respondiendo a la brevedad posible, Gracias!" +
-                //        // style='background-color:black;color:white;padding:20px; font-family:Arial, Helvetica;color:#555555;font-size:12px;'
-                //        "<h3 style='background-color:black;color:white;padding:20px; font-family:Arial, Helvetica;color:#555555;font-size:12px;'>" + "Direccion: " + solicitud.Direccion + "</h3>" + ' ' +
-                //        "<h4>" + "Zona: " + solicitud.Zona + "</h4>" + ' ' +
-                //        "<h5>" + "Numero: " + solicitud.Numero + "</h5>" + ' ' +
-                //        "<h3>" + "Dormitorios:" + solicitud.Dormitorios + "</h3>" + ' ' +
-                //        "<h3>" + "Banos:" + solicitud.Banos + "</h3>" + ' ' +
-                //        "<h3>" + "Valor:" + solicitud.Valor + "</h3>" + ' ' +
-                //        "<h3>" + "Contacto:" + solicitud.Contacto + "</h3>" + ' ' +
-                //        "<h3>" + "Fecha:" + solicitud.Fecha  + "</h3>" + ' ' +
-                //        //"<h3>" + "Fecha:" + (solicitud.Fecha).ToString("dd-MM-YYYY") + "</h3>" + ' ' +
-                //        "" +
-                //         "<h2>" + "Made by Italo DEV with " + "&copy; 2024    CAPTAR - Bienes y Raices " + "</h2>" +
-                //    "</div>"
-                //});
-
                 ViewBag.Message = "Se ha enviado su solicitud, pronto nos pondremos le estaremos contactando..!";
             return RedirectToAction(nameof(Index));
                   //return View(solicitud);

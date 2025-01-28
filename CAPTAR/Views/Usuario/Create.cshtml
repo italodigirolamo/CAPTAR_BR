@@ -71,11 +71,20 @@
                 <span asp-validation-for="Email" class="text-danger text-sm-center" style="font-size:10px;"></span>
             </div>
 
+            <div data-mdb-input-init class="form-outline mb-2">
+                <label class="form-label" for="Password">Password</label>
+                <input type="password" id="Password" class="form-control form-control-lg" asp-for="Password" />
+            </div>
+
+            <div data-mdb-input-init class="form-outline mb-2">
+                <label class="form-label" for="ConfirmPass">Confirmar password</label>
+                <input type="password" id="ConfirmPass" class="form-control form-control-lg" asp-for="ConfirmPass" />
+            </div>
 
 
             <div class=" form-floating mb-2 col-auto ">
 
-                <select class="form-control " style=" width: 4rem;" asp-for="Rol">
+                <select class="form-control form-select "   asp-for="Rol">
                     @* <select class="form-select " style=" width: 4rem;" asp-for="Banos"> *@
                     <option value="1" selected>Usuario</option>
                     <option value="2">Administrador</option>

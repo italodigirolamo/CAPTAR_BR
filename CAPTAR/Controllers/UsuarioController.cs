@@ -58,5 +58,28 @@ namespace CAPTAR.Controllers
             //return View(await _context.Usuario.ToListAsync());
         }
 
+        public async Task<IActionResult> Create()
+        {
+
+
+            return View();
+        }
+
+        [HttpPost]
+
+        public async Task<IActionResult> Create (UsuarioDto usuario)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(usuario);
+                await _context.SaveChangesAsync();
+
+                ViewBag.Message = "Se ha creado el Usuario," + usuario.NombreCompleto;
+                //return RedirectToAction(nameof(Index));
+            }
+                //return RedirectToAction();
+                return View();
+        }
+
     }
 }
